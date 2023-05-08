@@ -8,5 +8,6 @@ Collaborators: Leah Jia, Hamda Hassan, Yuhang Liu, Efra Ahsan
 ## Introducing Nodejs
 **Forked repo: https://github.com/efra-tech/node**
 
--
--
+Node.js was written initially by Ryan Dahl, a software engineer, in 2009. He released the first version of Node.js in 2010, which initially supported only Linux and Mac OS X. It was previously governed by the Node.js Foundation, which is a collaborative project of the Linux Foundation. It has now merged with the JS Foundation to form the OpenJS Foundation. 
+
+The Node.js project has a technical steering committee (TSC) that is responsible for approving changes to the codebase and architecture. The TSC is made up of a group of individuals who have made significant contributions to the project and who are elected by the community. They are responsible for setting the technical direction of the project and reviewing and approving changes to the codebase. In addition to the TSC, there is also a core team of maintainers who are responsible for reviewing and merging pull requests, managing issues, and ensuring the overall health of the project.
