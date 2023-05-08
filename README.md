@@ -8,7 +8,7 @@ Collaborators: Leah Jia, Hamda Hassan, Yuhang Liu, Efra Ahsan
 ## Introducing Nodejs
 **Forked repo: https://github.com/efra-tech/node**
 
-In user's perspective, Node.js is a powerful development tool for building web application. It can manage packages through npm command, also it is very useful in developing server-side application. Last, but not least, with Node.js, Javascript could be run independently without the browser.
+Node.js is a popular open-source JavaScript runtime environment and library for running web applications outside the client's browser. From a user perspective, it enables developers to run JavaScript code on the server-side and provides an event-driven, non-blocking I/O model that is well-suited for building real-time and scalable network applications. Node.js is a powerful development tool for building web application and has gained widespread adoption among developers. 
 
 Node.js was written initially by Ryan Dahl, a software engineer, in 2009. He released the first version of Node.js in 2010, which initially supported only Linux and Mac OS X. It was previously governed by the Node.js Foundation, which is a collaborative project of the Linux Foundation. It has now merged with the JS Foundation to form the OpenJS Foundation. 
 
