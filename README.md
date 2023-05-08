@@ -7,7 +7,7 @@ Collaborators: Leah Jia, Hamda Hassan, Yuhang Liu, Efra Ahsan
 
 ## Short description
 
-In user's perspective, Node.js is a powerful development tool for building web application. It can manage packages through npm command, also it is very useful in developing server-side application. Also, with Node.js, Javascript could be run independently without the browser.
+In user's perspective, Node.js is a powerful development tool for building web application. It can manage packages through npm command, also it is very useful in developing server-side application. Last, but not least, with Node.js, Javascript could be run independently without the browser.
 
 ## Introducing Nodejs
 **Forked repo: https://github.com/efra-tech/node**
