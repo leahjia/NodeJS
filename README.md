@@ -62,6 +62,22 @@ The concern for throughput and scalability in a Node.js software system revolves
 
 ## Identifying Styles & Patterns Used
 
+####  Architecture Style:
+
+One of the architecture styles we noticed from NodeJS source code is event-driven architecture. With event-driven architecture, NodeJs can handle I/O operations efficiently.
+
+Besides, NodeJs is a modular architecture. In the NodeJS dep folder, there are many utilized modules and dependencies like libuv, which is a library that can do asynchronous I/O. The overall architecture of NodeJS is separated into multiple modules.
+
+#### Design patterns: 
+
+- Event Emitter Pattern: The Event Emitter pattern is a key component of Node.js, enabling event-driven programming. The EventEmitter class is utilized to emit events, and event listeners are registered to respond to those events asynchronously. This pattern facilitates communication and coordination between different parts of the application.
+
+- Promise Pattern:While not originally part of Node.js, Promises are widely used in modern Node.js applications and modules. Promises provide a structured and composable way to handle asynchronous operations, improving code readability and maintainability.
+
+- OOP Pattern:
+
+- Module Pattern:
+
 
 ## Architectural Assessment
 - Node.js adheres to the single responsibility principle to an extent. Although node does not enforce the (SRP) principle, it does encourage developers to create small and concise modules that are responsible for one actor. For example, it’s possible for developers to have modules or classes that only focus on handling HTTP requests in a Node.js application. 
