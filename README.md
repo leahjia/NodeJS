@@ -100,11 +100,6 @@ Besides, NodeJs is a modular architecture. In the NodeJS dep folder, there are m
 - Module Pattern:
 
 ## Architectural Assessment
-- Node.js adheres to the single responsibility principle to an extent. Although node does not enforce the (SRP) principle, it does encourage developers to create small and concise modules that are responsible for one actor. For example, it’s possible for developers to have modules or classes that only focus on handling HTTP requests in a Node.js application.
-- The Open-closed design principle states that “Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification” (Thorben, 2018). Node.js does not enforce this principle so it becomes the responsibility of the developer to either include this principle or leave it. Node.js allows developers to implement the Open-closed principle. JavaScript is a flexible language and developers can use that to their advantage to build onto existing applications without modifying existing code.
-- The dependency inversion principle states that “High-level modules, which provide complex logic, should be easily reusable and unaffected by changes in low-level modules, which provide utility features” (Thorben, 2018).  This principle is important as it allows developers to create classes that are easier to test. By following this principle developers can write unit tests better and increase test coverage, which then improves the overall reliability of the code. This principle also allows developers to incorporate flexibility and reusability into their applications. Node.js does not enforce the dependency inversion principle, but it allows developers to implement this principle if they want.
-
-## Architectural Assessment
 ### Single responsibility principle
 The Single Responsibility Principle states that a class or module should have only one reason to change. It is the idea that a module should be responsible for a single functionality or concern, making it easier to modify and maintain.
 
@@ -124,6 +119,12 @@ Node.js does not always enforce this principle so it becomes the responsibility 
 
 
 ### Dependency inversion principle
-The dependency inversion principle states that “High-level modules, which provide complex logic, should be easily reusable and unaffected by changes in low-level modules, which provide utility features” (Thorben, 2018).  This principle is important as it allows developers to create classes that are easier to test. By following this principle developers can write unit tests better and increase test coverage, which then improves the overall reliability of the code. This principle also allows developers to incorporate flexibility and reusability into their applications. Node.js does not enforce the dependency inversion principle, but it allows developers to implement this principle if they want.
+The Dependency Inversion Principle states that high-level modules, which provide complex logic, should be easily reusable and unaffected by changes in low-level modules, which provide utility features.” Instead, both should depend on abstractions. It promotes the decoupling of modules and the inversion of control, enhancing modularity, flexibility, and maintainability.  By following this principle developers can write unit tests better and increase test coverage, which then improves the overall reliability of the code.
+
+One example of Node.js adhering to this principle is Node.js’s support for dependency injection. Dependency injection allows modules or classes to be decoupled from their dependencies by injecting them from external sources. For instance, in a Node.js application, a service class may depend on a database module. Instead of directly instantiating the database module within the service, the database instance can be injected into the service's constructor or method. This way, the service depends on an abstraction (interface or class) rather than a concrete implementation, promoting flexibility and testability.
+
+Node.js frameworks embrace the Dependency Inversion Principle by providing inversion of control containers, which manage the creation and resolution of dependencies, allowing modules to depend on abstractions rather than concrete implementations. For example, in Nest.js, services can define their dependencies using constructor injection, and the framework's IoC container resolves and injects the dependencies automatically. This reduces tight coupling between modules and facilitates code extensibility and maintainability.
+
+However, modules within the Node.js system may exhibit tight coupling, violating the Dependency Inversion Principle. Tight coupling occurs when a module directly depends on concrete implementations rather than abstractions. For instance, if a module directly imports and uses a specific database client library, it tightly couples itself to that library. To address this violation, the module should depend on an abstraction (such as a database interface) instead of the concrete library. This allows for flexibility in switching database implementations or mocking dependencies during testing.
 
 ## System Improvements
