@@ -78,16 +78,47 @@ The concern for throughput and scalability in a Node.js software system revolves
 
 ## Identifying Styles & Patterns Used
 
+####  Architecture Style:
+
+One of the architecture styles we noticed from NodeJS source code is event-driven architecture. With event-driven architecture, NodeJs can handle I/O operations efficiently.
+
+Besides, NodeJs is a modular architecture. In the NodeJS dep folder, there are many utilized modules and dependencies like libuv, which is a library that can do asynchronous I/O. The overall architecture of NodeJS is separated into multiple modules.
+
+#### Design patterns:
+
+- Event Emitter Pattern: The Event Emitter pattern is a key component of Node.js, enabling event-driven programming. The EventEmitter class is utilized to emit events, and event listeners are registered to respond to those events asynchronously. This pattern facilitates communication and coordination between different parts of the application.
+
+- Promise Pattern:While not originally part of Node.js, Promises are widely used in modern Node.js applications and modules. Promises provide a structured and composable way to handle asynchronous operations, improving code readability and maintainability.
+
+- OOP Pattern:
+
+- Module Pattern:
 
 ## Architectural Assessment
 - Node.js adheres to the single responsibility principle to an extent. Although node does not enforce the (SRP) principle, it does encourage developers to create small and concise modules that are responsible for one actor. For example, it’s possible for developers to have modules or classes that only focus on handling HTTP requests in a Node.js application.
 - The Open-closed design principle states that “Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification” (Thorben, 2018). Node.js does not enforce this principle so it becomes the responsibility of the developer to either include this principle or leave it. Node.js allows developers to implement the Open-closed principle. JavaScript is a flexible language and developers can use that to their advantage to build onto existing applications without modifying existing code.
 - The dependency inversion principle states that “High-level modules, which provide complex logic, should be easily reusable and unaffected by changes in low-level modules, which provide utility features” (Thorben, 2018).  This principle is important as it allows developers to create classes that are easier to test. By following this principle developers can write unit tests better and increase test coverage, which then improves the overall reliability of the code. This principle also allows developers to incorporate flexibility and reusability into their applications. Node.js does not enforce the dependency inversion principle, but it allows developers to implement this principle if they want.
 
+## Architectural Assessment
 ### Single responsibility principle
+The Single Responsibility Principle states that a class or module should have only one reason to change. It is the idea that a module should be responsible for a single functionality or concern, making it easier to modify and maintain.
+
+Node.js promotes the separation of concerns through its modular architecture. Modules in Node.js encapsulate specific functionality, focusing on a single responsibility. For example, the "http" module handles HTTP server functionality, while the "fs" module provides file system operations. Each module has a well-defined responsibility, adhering to the SRP.
+
+Node.js is also well-suited for microservices architectures by dividing the system into smaller, independent services, each with a single responsibility or functionality, which aligns with the Single Responsibility Principle. It encourages developers to create small and concise modules that are responsible for one actor. For example, it’s possible for developers to have modules or classes that only focus on handling HTTP requests in a Node.js application.
+
+On the other hand, when a module takes on multiple responsibilities, it becomes harder to understand and maintain. For example, if a module responsible for handling API endpoints also includes authentication and database access logic, it violates the SRP. As a result, Node.js adheres to the single responsibility principle to an extent. In such cases, it is better to refactor the module into separate components, where one handles API requests and another focuses on database operations.
+
 
 ### Open-closed principle
+The Open-Closed Principle states that software entities should be open for extension but closed for modification. This means that the behavior of a software entity should be easily extended without modifying its existing code.
+
+There are various instances where Node.js promotes this principle in their applications. The `lib/http.js` module in the Node.js repository follows the OCP by providing an extensible framework for handling `HTTP` requests and responses. It defines a set of classes and functions that can be extended to customize the behavior of the HTTP server. Developers can create custom request handlers by subclassing the `http.Server` class or by attaching middleware functions using the `http.createServer()` method, allowing for easy extension without modifying the core code. Additionally, The `lib/stream.js` module in Node.js adheres to the OCP by providing an extensible framework for working with streams. It defines a set of classes, such as `Readable`, `Writable`, and `Transform`, which can be extended to create custom stream implementations. Developers can create their own custom stream classes by inheriting from these base classes, enabling the extension of stream functionality without modifying the core codebase.
+
+Node.js does not always enforce this principle so it becomes the responsibility of the developer to implement this principle using flexible languages such as JavaScript. Instead, Node.js follows the Principle by providing a plugin system that allows extending the functionality of the system without modifying its core code. For instance, while the `lib/net.js` module provides a basic framework for creating network servers and clients, customization and extension points are limited. Developers will need to create and integrate plugins into a Node.js application to add new features or modify existing behavior.
+
 
 ### Dependency inversion principle
+The dependency inversion principle states that “High-level modules, which provide complex logic, should be easily reusable and unaffected by changes in low-level modules, which provide utility features” (Thorben, 2018).  This principle is important as it allows developers to create classes that are easier to test. By following this principle developers can write unit tests better and increase test coverage, which then improves the overall reliability of the code. This principle also allows developers to incorporate flexibility and reusability into their applications. Node.js does not enforce the dependency inversion principle, but it allows developers to implement this principle if they want.
 
 ## System Improvements
