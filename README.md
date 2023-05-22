@@ -100,7 +100,7 @@ Besides, NodeJs is a modular architecture. In the NodeJS dep folder, there are m
 - Module Pattern:
 
 ## Architectural Assessment
-### Single responsibility principle
+### Single Responsibility Principle
 The Single Responsibility Principle states that a class or module should have only one reason to change. It is the idea that a module should be responsible for a single functionality or concern, making it easier to modify and maintain.
 
 Node.js promotes the separation of concerns through its modular architecture. Modules in Node.js encapsulate specific functionality, focusing on a single responsibility. For example, the "http" module handles HTTP server functionality, while the "fs" module provides file system operations. Each module has a well-defined responsibility, adhering to the SRP.
@@ -110,7 +110,7 @@ Node.js is also well-suited for microservices architectures by dividing the syst
 On the other hand, when a module takes on multiple responsibilities, it becomes harder to understand and maintain. For example, if a module responsible for handling API endpoints also includes authentication and database access logic, it violates the SRP. As a result, Node.js adheres to the single responsibility principle to an extent. In such cases, it is better to refactor the module into separate components, where one handles API requests and another focuses on database operations.
 
 
-### Open-closed principle
+### Open-Closed Principle
 The Open-Closed Principle states that software entities should be open for extension but closed for modification. This means that the behavior of a software entity should be easily extended without modifying its existing code.
 
 There are various instances where Node.js promotes this principle in their applications. The `lib/http.js` module in the Node.js repository follows the OCP by providing an extensible framework for handling `HTTP` requests and responses. It defines a set of classes and functions that can be extended to customize the behavior of the HTTP server. Developers can create custom request handlers by subclassing the `http.Server` class or by attaching middleware functions using the `http.createServer()` method, allowing for easy extension without modifying the core code. Additionally, The `lib/stream.js` module in Node.js adheres to the OCP by providing an extensible framework for working with streams. It defines a set of classes, such as `Readable`, `Writable`, and `Transform`, which can be extended to create custom stream implementations. Developers can create their own custom stream classes by inheriting from these base classes, enabling the extension of stream functionality without modifying the core codebase.
@@ -118,13 +118,13 @@ There are various instances where Node.js promotes this principle in their appli
 Node.js does not always enforce this principle so it becomes the responsibility of the developer to implement this principle using flexible languages such as JavaScript. Instead, Node.js follows the Principle by providing a plugin system that allows extending the functionality of the system without modifying its core code. For instance, while the `lib/net.js` module provides a basic framework for creating network servers and clients, customization and extension points are limited. Developers will need to create and integrate plugins into a Node.js application to add new features or modify existing behavior.
 
 
-### Dependency inversion principle
+### Dependency Inversion Principle
 The Dependency Inversion Principle states that high-level modules, which provide complex logic, should be easily reusable and unaffected by changes in low-level modules, which provide utility features.” Instead, both should depend on abstractions. It promotes the decoupling of modules and the inversion of control, enhancing modularity, flexibility, and maintainability.  By following this principle developers can write unit tests better and increase test coverage, which then improves the overall reliability of the code.
 
 One example of Node.js adhering to this principle is Node.js’s support for dependency injection. Dependency injection allows modules or classes to be decoupled from their dependencies by injecting them from external sources. For instance, in a Node.js application, a service class may depend on a database module. Instead of directly instantiating the database module within the service, the database instance can be injected into the service's constructor or method. This way, the service depends on an abstraction (interface or class) rather than a concrete implementation, promoting flexibility and testability.
 
 Node.js frameworks embrace the Dependency Inversion Principle by providing inversion of control containers, which manage the creation and resolution of dependencies, allowing modules to depend on abstractions rather than concrete implementations. For example, in Nest.js, services can define their dependencies using constructor injection, and the framework's IoC container resolves and injects the dependencies automatically. This reduces tight coupling between modules and facilitates code extensibility and maintainability.
 
-However, modules within the Node.js system may exhibit tight coupling, violating the Dependency Inversion Principle. Tight coupling occurs when a module directly depends on concrete implementations rather than abstractions. For instance, if a module directly imports and uses a specific database client library, it tightly couples itself to that library. To address this violation, the module should depend on an abstraction (such as a database interface) instead of the concrete library. This allows for flexibility in switching database implementations or mocking dependencies during testing.
+However, modules within the Node.js system may exhibit tight coupling, violating the Dependency Inversion Principle. Tight coupling occurs when a module directly depends on concrete implementations rather than abstractions. Node.js applications often utilize frameworks like Express.js for web development. Violations of the Dependency Inversion Principle can occur when code within a module or class directly relies on framework-specific APIs or functionalities. This creates a tight coupling between the code and the framework, making it difficult to switch to a different framework in the future.
 
 ## System Improvements
