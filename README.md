@@ -57,8 +57,34 @@ This synchronously passes requests into the event loop or thread pool depending 
 Within the NodeJS system, there are several high-level components in play. Firstly, the __*NodeJS API*__ is the toolkit that the client directly installs and accesses from within their __*Web Server Application*__. This toolkit comes with built-in and additionally importable __*Modules*__ that help with backend utility functions, such as for testing or formatting. Now from the Web Server Application, after the developer has integrated the Node into their application, and their frontend is ready to input/output data from the application for which node was installed for, the frontend-backend communication stream begins by collecting into an __*Event Queue*__. Here, the user- and application events from the frontend, such as clicking to access a piece of stored information, are collected in a synchronous manner so that the information can stay processing according to realtime transactions. Each event from the frontend feeds into the __*I/O Operating System Interface*__, from where it will process through either the __*Event Loop*__ or the __*Thread Pool*__. The __*Event Loop*__ accesses the __*V8 JavaScript Engine*__ in a non-blocking manner, meaning that the events it handles are non-complex, such as a user trying to access or add to a piece of existing data within the application’s backend. On the other hand, the __*Thread Pool*__ accesses the __*V8 JavaScript Engine*__ in a blocking manner, meaning that something is needing to access the __*Web Server Application*__ in a complex manner that requires waiting for a response, such as reading and writing data onto the frontend before a user can even invoke an event, so this does not run asynchronously and single-threadedly to access the web server application like the Thread Pool famously does. The __*V8 Javascript Engine*__ itself, is just a translator of the JavaScript code into machine code so that the frontend can communicate to the computer backend, however the differentiation between the blocking and non-blocking processes is important because each of these different processes feed into the computer in a specific way, which the V8 JavaScript Engine accommodates. Each of these bits of communication, or each of the blocking and nonblocking events that occur from within the application, are ordered into the collection of __*Requests*__ that target the Web Server Application backend, which then follow through on the order of events or errors that are demanded by the frontend.
 
 
-### System Dependencies [dependencies within and without system]
-- System dependencies for Node.js are the libraries or software required for the application to function properly.  There are two categories of system dependencies: Operating system dependencies and third-party library dependencies.  Operating system dependencies provide services for Node.js to interact with and one example is the Node Package Manager (npm) which allows developers to share and manage  reusable code modules. Third-party dependencies are not part of functionality provided by Node.js, but they are needed and required  in order to build certain features. One example of this type of third-party dependencies is express.js which is a framework that allows us to simplify web application development. For developers to use Node.js and build high level applications we need these dependencies.  
+## System Dependencies
+System dependencies for Node.js are the libraries or software required for the application to function properly. There are two categories of system dependencies: Operating system dependencies and third-party library dependencies. Operating system dependencies provide services for Node.js to interact with and rely on for functioning. Third-party dependencies are not part of functionality provided by Node.js, but they are needed and required in order to build certain features. For developers to use Node.js and build high level applications they’ll need these dependencies.  
+
+### Operating System Dependencies
+#### Web Application (HTML File)
+Before the developer can start a node server, the developer needs to have a project folder for their application set up on their computer. This needs to include the index.html file that the browser can read and render to setup the frontend of the application, and therefore allow requests to the backend.
+
+#### npm
+The Node.js system's most important peer dependency is its package manager, __*npm*__. This is the command-line client that the developer uses to download, manage, and share all of the other dependencies and modules that need to be accessed by the web server application. It also comes with its own libraries that help speed up the development process.
+
+#### V8 Library
+For Node.js to communicate to the computer server, it utilizes the __*V8 Library*__, which essentially plugs the system with the JavaScript Engine that is requires to translate the developer's JavaScript code into computer code.
+
+#### Other Libraries
+Another dependency is the the __*libuv library*__, which is how the Node.js system can abstract the blocking and non-blocking I/O Operations inputted by the Thread Pool and Event Loop components aforementioned.
+
+For HTTP parsing, Node.js uses the __*llhttp library*__, which is a lightweight system that yields less of a per-request memory footprint than other libraries.
+
+To protect the backend storage within the Web Server Application, Node.js uses __*OpenSSL*__ for modern web security.
+
+
+### Third-Party Library Dependencies
+Within an application that is using Node.js for backend functionality, there'll exist fundamental dependencies that allow the project to run. These include the production dependencies, such as needing *react-dom* to run a react application, or any other set-up pieces the developer uses. Developers can also install development and peer dependencies, which essentially helps with optimizing or speeding up the development process by using automatation. Such dependencies include libraries such as *nodemon*, which restarts the node application upon detecting file changes. Moreso, developer's can also install optional dependencies such as libraries that framework styling. These types of third-party dependencies depend on the developer's choices of technology and flow of work style.
+
+For version control of the web server application, another common dependency amongst especially a team of developers, is *GitHub*. This can help keep track of the lifecycle of the application and the data.
+
+
+
 ### Codeline’s Model’s Source Code Structure
 Doc
 Api
@@ -70,13 +96,13 @@ C++
 Test
 Tools
 
-### System’s Approach to Testing and Configuration  
+### Approaching Testing and Configuration  
 
 The NodeJS system recently upgraded their __*Test Runner module*__ that facilitates testing upon the JavaScript code. The developer can import the testing module and begin unit testing on their code if they have the most recent version of Node installed. This is a good place for developers to start when beginning their testing phase, because the the module is capable of delivering metrics on factors like code coverage, it supports mocking/spying/stubbing Objects within tests, it enables using both custom and built-in reporters; and it has syntax to support organizing the tests– such as by compartmentalizing into describe/it blocks, subtests, and timed tests.    
 
 Many developers prefer using alternative unit testing frameworks, such as Jest, Mocha, Chai, etc., which are also supported by the NodeJS system to import and use. These systems are often considered more flexible especially in terms of setting up automated tests.
 
-To formally set up testing within the web server application, the developer must first pick the testing framework they want to integrate their unit testing with. Upon firm decision, the developer then needs to import or install the framework using the command-line interface on their computer. To complete the framework installation, the developer will need to configure their package.json file, so that the application understands what module to use for testing procedures. From here, the developer can create their testing directory/files and begin the process of arranging, acting, and asserting upon their code. 
+To formally set up testing within the web server application, the developer must first pick the testing framework they want to integrate their unit testing with. Upon firm decision, the developer then needs to import or install the framework using the command-line interface on their computer. To complete the framework installation, the developer will need to configure their package.json file, so that the application understands what module to use for testing procedures. From here, the developer can create their testing directory/files and begin the process of arranging, acting, and asserting upon their code.
 
 
 ## Applied Perspective
