@@ -21,6 +21,8 @@ To download the environment or learn more about it, navigate to their website [h
 To find information on more projects governed by the OpenJS Foundation, check out their webpage [here](https://openjsf.org/projects/).
 
 ## Development View
+We have abstracted what we find to be the static, component-level system architecture of Node.js. We’ve also identified system dependencies at the component level, as well as abstracted the high-level codeline model of the source code structure. We then investigate the system’s approach to testing and configuration, and go on to identify the eminent architectural styles and design patterns that our team detected.
+
 ### Overview of the Architectural Components
 ### System Components
 #### V8 JavaScript Engine
