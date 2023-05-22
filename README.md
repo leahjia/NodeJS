@@ -64,6 +64,9 @@ The concern for throughput and scalability in a Node.js software system revolves
 
 
 ## Architectural Assessment
+- Node.js adheres to the single responsibility principle to an extent. Although node does not enforce the (SRP) principle, it does encourage developers to create small and concise modules that are responsible for one actor. For example, it’s possible for developers to have modules or classes that only focus on handling HTTP requests in a Node.js application. 
+- The Open-closed design principle states that “Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification” (Thorben, 2018). Node.js does not enforce this principle so it becomes the responsibility of the developer to either include this principle or leave it. Node.js allows developers to implement the Open-closed principle. JavaScript is a flexible language and developers can use that to their advantage to build onto existing applications without modifying existing code.
+- The dependency inversion principle states that “High-level modules, which provide complex logic, should be easily reusable and unaffected by changes in low-level modules, which provide utility features” (Thorben, 2018).  This principle is important as it allows developers to create classes that are easier to test. By following this principle developers can write unit tests better and increase test coverage, which then improves the overall reliability of the code. This principle also allows developers to incorporate flexibility and reusability into their applications. Node.js does not enforce the dependency inversion principle, but it allows developers to implement this principle if they want.
 
 ### Single responsibility principle
 
