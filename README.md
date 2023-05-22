@@ -53,6 +53,7 @@ This synchronously passes requests into the event loop or thread pool depending 
 ### Organization & Interaction of Components
 [include figure here]
 ### System Dependencies [dependencies within and without system]
+- System dependencies for Node.js are the libraries or software required for the application to function properly.  There are two categories of system dependencies: Operating system dependencies and third-party library dependencies.  Operating system dependencies provide services for Node.js to interact with and one example is the Node Package Manager (npm) which allows developers to share and manage  reusable code modules. Third-party dependencies are not part of functionality provided by Node.js, but they are needed and required  in order to build certain features. One example of this type of third-party dependencies is express.js which is a framework that allows us to simplify web application development. For developers to use Node.js and build high level applications we need these dependencies.  
 ### Codeline’s Model’s source code structure
 ### System’s approach to testing and configuration
 
