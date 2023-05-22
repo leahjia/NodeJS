@@ -70,13 +70,13 @@ C++
 Test
 Tools
 
-### System’s Approach to Testing and Configuration
-####Test Runner
-The NodeJS system has the Test Runner module that facilitates testing upon the JavaScript code, but these test files need to be set up and managed by the client/developer. This is a good place for developers to start when beginning their testing phase, because the the module is capable of delivering metrics on factors like code coverage, it supports mocking/spying/stubbing Objects within tests, it enables using both custom and built-in reporters; and it has syntax to supports organizing the tests– such as by compartmentalizing into describe/it blocks, subtests, and timed tests.
-####Testing Frameworks
-Developers can also integrate unit testing frameworks onto their Web Server Application, which is not only supported by NodeJS in a technical lens, but preferred by many developers given the simpler syntax of using frameworks such as Jest, Mocha, and Jasmine.
-*configuration work*
-*automated testing integration*
+### System’s Approach to Testing and Configuration  
+### Test Runner  
+The NodeJS system has the Test Runner module that facilitates testing upon the JavaScript code, but these test files need to be set up and managed by the client/developer. This is a good place for developers to start when beginning their testing phase, because the the module is capable of delivering metrics on factors like code coverage, it supports mocking/spying/stubbing Objects within tests, it enables using both custom and built-in reporters; and it has syntax to supports organizing the tests– such as by compartmentalizing into describe/it blocks, subtests, and timed tests.    
+### Testing Frameworks   
+Developers can also integrate unit testing frameworks onto their Web Server Application, which is not only supported by NodeJS in a technical lens, but preferred by many developers given the simpler syntax of using frameworks such as Jest, Mocha, and Jasmine.    
+*configuration work*    
+*automated testing integration*   
 
 
 ## Applied Perspective
