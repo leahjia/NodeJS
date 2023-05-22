@@ -5,7 +5,7 @@
 
 Collaborators: Leah Jia, Hamda Hassan, Yuhang Liu, Efra Ahsan
 
-# Content and Background
+## Content and Background
 **Forked repo: https://github.com/efra-tech/node**   
 
 Node.js is a popular open-source JavaScript runtime environment that can run on various platforms such as Windows, MacOSX, Linux, and more–and it’s free. It essentially enables developers to run JavaScript code on the server-side, rather than through just the web browser. Node can communicate with the computer’s server and file system in a memory-efficient, asynchronous, and single-threaded manner, which was more difficult and slow before its invention. It’s commonly used by developers to create a database within a computer’s server, and modify or use the data in a streamlined way, which therefore helps make webpage content more dynamic and pertaining to the real-time data. It provides an event-driven, non-blocking I/O model that is well-suited for building real-time and scalable network applications. Node.js is a powerful development tool for building backended web applications and has gained widespread adoption among developers.  
@@ -19,3 +19,56 @@ To view the project on GitHub, navigate [here](https://github.com/nodejs/node).
 To download the environment or learn more about it, navigate to their website [here](https://nodejs.org/en).
 
 To find information on more projects governed by the OpenJS Foundation, check out their webpage [here](https://openjsf.org/projects/).
+
+## Development View
+### Overview of the Architectural Components
+### System Components
+#### V8 JavaScript Engine 
+#### Node.js API
+#### Modules
+#### Web Server Application
+#### Event Loop 
+#### Thread Pool
+#### Requests
+#### Event Queue
+
+### Organization & Interaction of Components
+[include figure here]
+### System Dependencies [dependencies within and without system]
+### Codeline’s Model’s source code structure
+### System’s approach to testing and configuration 
+
+## Applied Perspective
+The performance perspective refers to the architectural consideration of optimizing and enhancing the system’s efficiency, responsiveness, throughput, scalability, and resource utilization. This perspective aims to ensure that the Node.js system operates at its maximum potential, delivering fast and scalable performance to handle increasing workloads.
+
+In Node.js, some of the most relevant concerns include response time, throughput, and scalability. In terms of response time, there are two classes to consider: responsiveness, which considers how quickly the system responds to routine workloads such as interactive user requests, and turnaround time, which is the time taken to complete (turn around) larger tasks. Node.js’s event-driven model is specifically designed to optimize responsiveness. By utilizing asynchronous operations, callbacks, promises, or async/await patterns, we can ensure that the system can handle multiple requests concurrently without blocking the execution. This allows the system to quickly respond to incoming requests, reducing latency and improving the overall response time.
+
+The concern for throughput and scalability in a Node.js software system revolves around its ability to handle a high volume of requests efficiently. Node.js supports horizontal scalability, which adds more instances as the demand grows. This scalability approach ensures that the system can maintain optimal performance even under heavy loads, as the workload is distributed across multiple resources. Additionally, load balancing is significantly useful in improving the performance of the system through techniques such as round-robin, weighted distribution, and intelligent routing. Using these techniques, incoming requests can be evenly distributed among the available instances or workers, enhancing the performance of the Node system.
+
+### Performance activities
+#### Activity 1: Analyzing Throughput and Response Time
+*Objective: to analyze and measure the throughput and response time of the Node.js software system to assess its performance.*
+- Simulate a workload for a typical environment by conducting load tests on the system. Vary the number of concurrent users or requests to observe the system’s behavior under different loads.
+- Capture and analyze the system’s ability to handle a high volume of requests. Measure the number of requests processed per second during peak load and observe any throughput bottlenecks.
+- Measure the average and peak response times for different types of requests. Identify any patterns in the response time and determine whether it meets the desired performance goals.
+- Analyze the collected performance data to identify potential performance bottlenecks. Look for times when the system experiences long response times or low throughput.
+
+#### Activity 2: Load Testing and Scalability Assessment
+*Objective:  to assess the scalability of the Node.js system by performing load testing and analyzing its performance under increasing workloads.*
+- Run the load tests with increasing workloads to evaluate the system’s performance and scalability. Gradually increase the number of concurrent users, request rates, or data volumes
+- Evaluate how the load balancing mechanism handles instances or workers that become unavailable or experience failures.
+- Identify any performance limitations as the load increases and look for indicators such as response time degradation and increased error rates
+- Identify any scalability constraints within the Node.js system. Evaluate components such as the web server, application server, database, or external dependencies
+
+## Identifying Styles & Patterns Used
+
+
+## Architectural Assessment
+
+### Single responsibility principle
+
+### Open-closed principle
+
+### Dependency inversion principle
+
+## System Improvements
