@@ -71,12 +71,12 @@ Test
 Tools
 
 ### System’s Approach to Testing and Configuration  
-### Test Runner  
-The NodeJS system has the Test Runner module that facilitates testing upon the JavaScript code, but these test files need to be set up and managed by the client/developer. This is a good place for developers to start when beginning their testing phase, because the the module is capable of delivering metrics on factors like code coverage, it supports mocking/spying/stubbing Objects within tests, it enables using both custom and built-in reporters; and it has syntax to supports organizing the tests– such as by compartmentalizing into describe/it blocks, subtests, and timed tests.    
-### Testing Frameworks   
-Developers can also integrate unit testing frameworks onto their Web Server Application, which is not only supported by NodeJS in a technical lens, but preferred by many developers given the simpler syntax of using frameworks such as Jest, Mocha, and Jasmine.    
-*configuration work*    
-*automated testing integration*   
+
+The NodeJS system recently upgraded their __*Test Runner module*__ that facilitates testing upon the JavaScript code. The developer can import the testing module and begin unit testing on their code if they have the most recent version of Node installed. This is a good place for developers to start when beginning their testing phase, because the the module is capable of delivering metrics on factors like code coverage, it supports mocking/spying/stubbing Objects within tests, it enables using both custom and built-in reporters; and it has syntax to support organizing the tests– such as by compartmentalizing into describe/it blocks, subtests, and timed tests.    
+
+Many developers prefer using alternative unit testing frameworks, such as Jest, Mocha, Chai, etc., which are also supported by the NodeJS system to import and use. These systems are often considered more flexible especially in terms of setting up automated tests.
+
+To formally set up testing within the web server application, the developer must first pick the testing framework they want to integrate their unit testing with. Upon firm decision, the developer then needs to import or install the framework using the command-line interface on their computer. To complete the framework installation, the developer will need to configure their package.json file, so that the application understands what module to use for testing procedures. From here, the developer can create their testing directory/files and begin the process of arranging, acting, and asserting upon their code. 
 
 
 ## Applied Perspective
