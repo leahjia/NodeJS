@@ -23,20 +23,36 @@ To find information on more projects governed by the OpenJS Foundation, check ou
 ## Development View
 ### Overview of the Architectural Components
 ### System Components
-#### V8 JavaScript Engine 
+#### V8 JavaScript Engine
+This is an open-source engine used to translate JavaScript code to machine code to communicate with the computer Node.js is installed. V8 also optimizes the performance of JavaScript execution. This engine is powerful and is known for its high-performance execution of JavaScript code.
+
 #### Node.js API
+This is the technology and toolkit that enables the client to use Node.js on their computer and to access and sustain modules the client thereby uses.  Some of the components related to building Node.js API include Express, HTTP Methods, and Data Storage. Express is a backend framework that allows developers to build APIs with Node.js. HTTP Methods are used for communication between a client and a server. These methods allow developers to retrieve and build data. Finally, APIs interact with databases and Node.js provides data platforms like MongoDB to allow developers to build high-quality and fast applications.
+
 #### Modules
+With the Node.js API are the built-in and optionally-installed modules that allow clients to execute modular functions to assist with a variety of backend utilities. This includes common tasks such as handling information pertaining to file paths, operating systems, URL query strings, running assertions, and more. There are also Native Modules that enable development in C and C++ rather than JavaScript.
+
 #### Web Server Application
-#### Event Loop 
+This is the local application that the client has set up and would like to utilize node functionalities upon–it’s where the data is stored. Usually hosted upon a web browser, its front end is where events occur, which induce the HTTP handling that node takes care of.
+
+#### Event Loop
+The event loop is a construct of the Node.js runtime environment, which allows node to perform its non-blocking I/O operations. This is the main thread within the thread pool, and there are many classes associated with this construct, but it allows node to streamline the process of synchronously communicating to the computer’s file system in a manner that’s efficient enough to allow “real-time database” and timer capabilities.
+
 #### Thread Pool
+Maintained by the Libuv library, node forms a thread pool of a fixed size, which collects and handles the different threads that node uses to perform long-running background operations that are not affiliated with the main event loop. These threads are essentially processes that are CPU-intensive tasks that are blocking I/O operations.
+
 #### Requests
+These are the actual requests to the computer file system that are non-blocking or blocking.
+
 #### Event Queue
+This synchronously passes requests into the event loop or thread pool depending on the complexity of the request.
+
 
 ### Organization & Interaction of Components
 [include figure here]
 ### System Dependencies [dependencies within and without system]
 ### Codeline’s Model’s source code structure
-### System’s approach to testing and configuration 
+### System’s approach to testing and configuration
 
 ## Applied Perspective
 The performance perspective refers to the architectural consideration of optimizing and enhancing the system’s efficiency, responsiveness, throughput, scalability, and resource utilization. This perspective aims to ensure that the Node.js system operates at its maximum potential, delivering fast and scalable performance to handle increasing workloads.
@@ -64,7 +80,7 @@ The concern for throughput and scalability in a Node.js software system revolves
 
 
 ## Architectural Assessment
-- Node.js adheres to the single responsibility principle to an extent. Although node does not enforce the (SRP) principle, it does encourage developers to create small and concise modules that are responsible for one actor. For example, it’s possible for developers to have modules or classes that only focus on handling HTTP requests in a Node.js application. 
+- Node.js adheres to the single responsibility principle to an extent. Although node does not enforce the (SRP) principle, it does encourage developers to create small and concise modules that are responsible for one actor. For example, it’s possible for developers to have modules or classes that only focus on handling HTTP requests in a Node.js application.
 - The Open-closed design principle states that “Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification” (Thorben, 2018). Node.js does not enforce this principle so it becomes the responsibility of the developer to either include this principle or leave it. Node.js allows developers to implement the Open-closed principle. JavaScript is a flexible language and developers can use that to their advantage to build onto existing applications without modifying existing code.
 - The dependency inversion principle states that “High-level modules, which provide complex logic, should be easily reusable and unaffected by changes in low-level modules, which provide utility features” (Thorben, 2018).  This principle is important as it allows developers to create classes that are easier to test. By following this principle developers can write unit tests better and increase test coverage, which then improves the overall reliability of the code. This principle also allows developers to incorporate flexibility and reusability into their applications. Node.js does not enforce the dependency inversion principle, but it allows developers to implement this principle if they want.
 
