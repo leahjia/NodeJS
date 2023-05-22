@@ -24,66 +24,62 @@ To find information on more projects governed by the OpenJS Foundation, check ou
 We have abstracted what we find to be the static, component-level system architecture of Node.js. We’ve also identified system dependencies at the component level, as well as abstracted the high-level codeline model of the source code structure. We then investigate the system’s approach to testing and configuration, and go on to identify the eminent architectural styles and design patterns that our team detected.
 
 ### Overview of the Architectural Components
-### System Components
-#### V8 JavaScript Engine
+#### System Components
+##### V8 JavaScript Engine
 This is an open-source engine used to translate JavaScript code to machine code to communicate with the computer Node.js is installed. V8 also optimizes the performance of JavaScript execution. This engine is powerful and is known for its high-performance execution of JavaScript code.
 
-#### Node.js API
+##### Node.js API
 This is the technology and toolkit that enables the client to use Node.js on their computer and to access and sustain modules the client thereby uses.  Some of the components related to building Node.js API include Express, HTTP Methods, and Data Storage. Express is a backend framework that allows developers to build APIs with Node.js. HTTP Methods are used for communication between a client and a server. These methods allow developers to retrieve and build data. Finally, APIs interact with databases and Node.js provides data platforms like MongoDB to allow developers to build high-quality and fast applications.
 
-#### Modules
+##### Modules
 With the Node.js API are the built-in and optionally-installed modules that allow clients to execute modular functions to assist with a variety of backend utilities. This includes common tasks such as handling information pertaining to file paths, operating systems, URL query strings, running assertions, and more. There are also Native Modules that enable development in C and C++ rather than JavaScript.
 
-#### Web Server Application
+##### Web Server Application
 This is the local application that the client has set up and would like to utilize node functionalities upon–it’s where the data is stored. Usually hosted upon a web browser, its front end is where events occur, which induce the HTTP handling that node takes care of.
 
-#### Event Loop
+##### Event Loop
 The event loop is a construct of the Node.js runtime environment, which allows node to perform its non-blocking I/O operations. This is the main thread within the thread pool, and there are many classes associated with this construct, but it allows node to streamline the process of synchronously communicating to the computer’s file system in a manner that’s efficient enough to allow “real-time database” and timer capabilities.
 
-#### Thread Pool
+##### Thread Pool
 Maintained by the Libuv library, node forms a thread pool of a fixed size, which collects and handles the different threads that node uses to perform long-running background operations that are not affiliated with the main event loop. These threads are essentially processes that are CPU-intensive tasks that are blocking I/O operations.
 
-#### Requests
+##### Requests
 These are the actual requests to the computer file system that are non-blocking or blocking.
 
-#### Event Queue
+##### Event Queue
 This synchronously passes requests into the event loop or thread pool depending on the complexity of the request.
 
-
-### Organization & Interaction of Components
+#### Organization & Interaction of Components
 ![Component Diagram](./components.png)
 *Figure 1 - Component-Level Diagram of the NodeJS system*
 
 Within the NodeJS system, there are several high-level components in play. Firstly, the __*NodeJS API*__ is the toolkit that the client directly installs and accesses from within their __*Web Server Application*__. This toolkit comes with built-in and additionally importable __*Modules*__ that help with backend utility functions, such as for testing or formatting. Now from the Web Server Application, after the developer has integrated the Node into their application, and their frontend is ready to input/output data from the application for which node was installed for, the frontend-backend communication stream begins by collecting into an __*Event Queue*__. Here, the user- and application events from the frontend, such as clicking to access a piece of stored information, are collected in a synchronous manner so that the information can stay processing according to realtime transactions. Each event from the frontend feeds into the __*I/O Operating System Interface*__, from where it will process through either the __*Event Loop*__ or the __*Thread Pool*__. The __*Event Loop*__ accesses the __*V8 JavaScript Engine*__ in a non-blocking manner, meaning that the events it handles are non-complex, such as a user trying to access or add to a piece of existing data within the application’s backend. On the other hand, the __*Thread Pool*__ accesses the __*V8 JavaScript Engine*__ in a blocking manner, meaning that something is needing to access the __*Web Server Application*__ in a complex manner that requires waiting for a response, such as reading and writing data onto the frontend before a user can even invoke an event, so this does not run asynchronously and single-threadedly to access the web server application like the Thread Pool famously does. The __*V8 Javascript Engine*__ itself, is just a translator of the JavaScript code into machine code so that the frontend can communicate to the computer backend, however the differentiation between the blocking and non-blocking processes is important because each of these different processes feed into the computer in a specific way, which the V8 JavaScript Engine accommodates. Each of these bits of communication, or each of the blocking and nonblocking events that occur from within the application, are ordered into the collection of __*Requests*__ that target the Web Server Application backend, which then follow through on the order of events or errors that are demanded by the frontend.
 
 
-## System Dependencies
+### System Dependencies
 System dependencies for Node.js are the libraries or software required for the application to function properly. There are two categories of system dependencies: Operating system dependencies and third-party library dependencies. Operating system dependencies provide services for Node.js to interact with and rely on for functioning. Third-party dependencies are not part of functionality provided by Node.js, but they are needed and required in order to build certain features. For developers to use Node.js and build high level applications they’ll need these dependencies.  
 
-### Operating System Dependencies
-#### Web Application (HTML File)
+#### Operating System Dependencies
+##### Web Application (HTML File)
 Before the developer can start a node server, the developer needs to have a project folder for their application set up on their computer. This needs to include the index.html file that the browser can read and render to setup the frontend of the application, and therefore allow requests to the backend.
 
-#### npm
+##### npm
 The Node.js system's most important peer dependency is its package manager, __*npm*__. This is the command-line client that the developer uses to download, manage, and share all of the other dependencies and modules that need to be accessed by the web server application. It also comes with its own libraries that help speed up the development process.
 
-#### V8 Library
+##### V8 Library
 For Node.js to communicate to the computer server, it utilizes the __*V8 Library*__, which essentially plugs the system with the JavaScript Engine that is requires to translate the developer's JavaScript code into computer code.
 
-#### Other Libraries
+##### Other Libraries
 Another dependency is the the __*libuv library*__, which is how the Node.js system can abstract the blocking and non-blocking I/O Operations inputted by the Thread Pool and Event Loop components aforementioned.
 
 For HTTP parsing, Node.js uses the __*llhttp library*__, which is a lightweight system that yields less of a per-request memory footprint than other libraries.
 
 To protect the backend storage within the Web Server Application, Node.js uses __*OpenSSL*__ for modern web security.
 
-
-### Third-Party Library Dependencies
+#### Third-Party Library Dependencies
 Within an application that is using Node.js for backend functionality, there'll exist fundamental dependencies that allow the project to run. These include the production dependencies, such as needing *react-dom* to run a react application, or any other set-up pieces the developer uses. Developers can also install development and peer dependencies, which essentially helps with optimizing or speeding up the development process by using automatation. Such dependencies include libraries such as *nodemon*, which restarts the node application upon detecting file changes. Moreso, developer's can also install optional dependencies such as libraries that framework styling. These types of third-party dependencies depend on the developer's choices of technology and flow of work style.
 
 For version control of the web server application, another common dependency amongst especially a team of developers, is *GitHub*. This can help keep track of the lifecycle of the application and the data.
-
-
 
 ### Codeline’s Model’s Source Code Structure
 Doc
