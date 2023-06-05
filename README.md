@@ -127,9 +127,12 @@ The concern for throughput and scalability in a Node.js software system revolves
 
 ####  Architecture Style:
 
-One of the architecture styles we noticed from NodeJS source code is event-driven architecture. With event-driven architecture, NodeJs can handle I/O operations efficiently.
+#### Architecture Style:
 
-Besides, NodeJs is a modular architecture. In the NodeJS dep folder, there are many utilized modules and dependencies like libuv, which is a library that can do asynchronous I/O. The overall architecture of NodeJS is separated into multiple modules.
+One of the fundamental  architecture styles of NodeJS codebase is the “Single Threaded Event Loop” design. For handling multiple concurrent operations from different clients, NodeJS maintains a single-thread programming model to  enhance scalability, performance and avoid complexity.  As we analyzed in system components, the NodeJS system has components like Event Queue, Thread Pool and Event Loop. All of these three components follow the single threaded style and allows NodeJS to operate on a single thread to execute Javascript code. Event Queue components allow NodeJs to listen for events and store the event in the event queue. Whenever an event occurs, their corresponding callback function is placed in the event queue. In the meantime, Event Loop keeps checking the state of Event Queue, and executes those callbacks in the  sequential order. In this case, NodeJS handles events with the First In First Out rule, which is also a single thread style.
+
+Besides, the NodeJS codebase also follows a modular architecture style. NodeJS codebase separates their code in multiple directories, and constantly exports and imports modules in their code. With modular style,  NodeJS code can be reused, improving development efficiency, separating concerns and providing more flexibility. In the NodeJS codebase, we can see a lot of evidence of modular style. For example, when handling blocking requests, NodeJS will place a callback in the Thread Pool and ask for external resources to handle the events. In this case, NodeJS is importing external modules to handle events. Other than handling events, NodeJS codebase provides a built-in module system called CommonJS that allows developers to define, import and export modules while developing. NodeJS has successfully separated their code in different modules and reused them when needed.
+
 
 #### Design patterns:
 
