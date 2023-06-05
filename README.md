@@ -169,7 +169,7 @@ Node.js frameworks embrace the Dependency Inversion Principle by providing inver
 
 However, modules within the Node.js system may exhibit tight coupling, violating the Dependency Inversion Principle. Tight coupling occurs when a module directly depends on concrete implementations rather than abstractions. Node.js applications often utilize frameworks like Express.js for web development. Violations of the Dependency Inversion Principle can occur when code within a module or class directly relies on framework-specific APIs or functionalities. This creates a tight coupling between the code and the framework, making it difficult to switch to a different framework in the future.
 
-### Keep It Simple, Stupid! (KISS) principle
+### Keep It Simple, Stupid! (KISS) Principle
 One of the main principles that the Node.js system maintains is that of the Keep it Simple, Stupid! (KISS) Principle, which emphasizes that unnecessary complexity should be avoided and that system architecture should be kept functionally simple. Because Node.js is a runtime environment for JavaScript code outside of the web browser, it follows the KISS principle in many ways.
 
 For one, NodeJS is a lean, minimalistic software that doesn’t have too many unnecessary features. Because the software system has a basic set of functionality, it minimizes complexity by instilling a conduct of simplicity– which makes the system easy to understand, maintain, and use. An important part of this simplicity is the fact that NodeJS uses JavaScript as the single programming language, which obviously keeps operations far more simpler across the architecture. Although today, there are different variations of Node that can be programmed using C/C++, those were additional accessory systems added atop the original, single-language NodeJS system.
@@ -178,7 +178,7 @@ Secondly, NodeJS follows a modular software structure, given that it consists of
 
 The simplicity, convenience of use, and minimalistic architecture of the NodeJS system definitely incorporates the KISS principle. It allows developers to build scalable, efficient, and maintainable applications without unnecessary complexity, making it the popular choice that it is for many developers and organizations.
 
-### Convention Over Configuration principle
+### Convention Over Configuration Principle
 The Convention Over Configuration principle suggests favoring predefined conventions and defaulting rather than favoring explicit configuration. This principle emphasizes this importance because from a development perspective, pre-established conventions are a lot more developer-friendly and structurally simpler than having to configure every aspect of the system. It increases the developer’s productivity to follow this principle, and makes the system more consistent and readable.
 
 The NodeJS system follows this principle in many different ways. Firstly, NodeJS maintains the favoring of conventions within the overall File and Module Structure by default. For example, in order to set up a node-using  web application, it is the default protocol to use the ‘index.js’ file as the entry point, without having to configure it to be so. Additionally by default, the ‘node_modules’ directory supports maintaining the system dependencies, which can additionally be configured, but oftentimes do not require being done so. These help developers understand and set up their web application following the preknown conventions, which does indeed make the system more consistent.
