@@ -81,16 +81,31 @@ Within an application that is using Node.js for backend functionality, there'll 
 
 For version control of the web server application, another common dependency amongst especially a team of developers, is *GitHub*. This can help keep track of the lifecycle of the application and the data.
 
-### Codeline’s Model’s Source Code Structure
-Doc
-Api
-api_assets
-Lib
-JS code
-Src
-C++
-Test
-Tools
+### System's Source Code Structure
+NodeJS is an open source project whose source code is hosted on GitHub. You can take a look at the project repository by visiting `https://github.com/nodejs/node`. We’ve broken down the source code structure into the following sections:
+
+1. **src** – Contains the main source code files for Node.js.
+      **deps** – Contains the third-party dependencies used by Node.js.
+      **lib** – Contains the internal JavaScript libraries used by Node.js.
+      **node** – Contains the C++ code that implements the Node.js runtime.
+      **test** – Holds the test suite for Node.js.
+
+2. **doc** – This directory contains documentation files related to Node.js.
+      **api** – Includes the API documentation for Node.js.
+      **changelogs** – Contains the release notes and changelogs for different versions of Node.js.
+      **deprecations** – Includes documentation for deprecated features.
+
+3. **tools** – Contains various tools used in the development and build processes of Node.js.
+      **gyp** – A build tool used to generate platform-specific build files.
+      **inspector** –  Includes tools for debugging and profiling Node.js applications.
+      **nghttp2** – Contains the HTTP/2 implementation used by Node.js.
+      **test** –  Holds test-related tools and configurations.
+
+4. **test** – Contains additional tests for Node.js.
+5. **benchmark** – Includes benchmarking tests for performance evaluation.
+6. **lib** – Contains JavaScript files that are part of the Node.js runtime.
+7. **src** – Contains C++ source files for the Node.js runtime.
+8. **deps** – Includes third-party dependencies used by Node.js.
 
 ### Approaching Testing and Configuration  
 
