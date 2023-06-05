@@ -169,4 +169,25 @@ Node.js frameworks embrace the Dependency Inversion Principle by providing inver
 
 However, modules within the Node.js system may exhibit tight coupling, violating the Dependency Inversion Principle. Tight coupling occurs when a module directly depends on concrete implementations rather than abstractions. Node.js applications often utilize frameworks like Express.js for web development. Violations of the Dependency Inversion Principle can occur when code within a module or class directly relies on framework-specific APIs or functionalities. This creates a tight coupling between the code and the framework, making it difficult to switch to a different framework in the future.
 
+### Keep It Simple, Stupid! (KISS) principle
+One of the main principles that the Node.js system maintains is that of the Keep it Simple, Stupid! (KISS) Principle, which emphasizes that unnecessary complexity should be avoided and that system architecture should be kept functionally simple. Because Node.js is a runtime environment for JavaScript code outside of the web browser, it follows the KISS principle in many ways.
+
+For one, NodeJS is a lean, minimalistic software that doesn’t have too many unnecessary features. Because the software system has a basic set of functionality, it minimizes complexity by instilling a conduct of simplicity– which makes the system easy to understand, maintain, and use. An important part of this simplicity is the fact that NodeJS uses JavaScript as the single programming language, which obviously keeps operations far more simpler across the architecture. Although today, there are different variations of Node that can be programmed using C/C++, those were additional accessory systems added atop the original, single-language NodeJS system.
+
+Secondly, NodeJS follows a modular software structure, given that it consists of many different modules that are handled using the Node Package Manager (NPM). This allows developers to grab and use each of the modules they need in a simple manner, rather than having to face a super complex system where the libraries are overly integrated. This ease of use is what makes NodeJS popularly, developer-friendly as an overall system, because it is a straightforward and consistent API.
+
+The simplicity, convenience of use, and minimalistic architecture of the NodeJS system definitely incorporates the KISS principle. It allows developers to build scalable, efficient, and maintainable applications without unnecessary complexity, making it the popular choice that it is for many developers and organizations.
+
+### Convention Over Configuration principle
+The Convention Over Configuration principle suggests favoring predefined conventions and defaulting rather than favoring explicit configuration. This principle emphasizes this importance because from a development perspective, pre-established conventions are a lot more developer-friendly and structurally simpler than having to configure every aspect of the system. It increases the developer’s productivity to follow this principle, and makes the system more consistent and readable.
+
+The NodeJS system follows this principle in many different ways. Firstly, NodeJS maintains the favoring of conventions within the overall File and Module Structure by default. For example, in order to set up a node-using  web application, it is the default protocol to use the ‘index.js’ file as the entry point, without having to configure it to be so. Additionally by default, the ‘node_modules’ directory supports maintaining the system dependencies, which can additionally be configured, but oftentimes do not require being done so. These help developers understand and set up their web application following the preknown conventions, which does indeed make the system more consistent.
+
+Other subsystems within NodeJs are also set up to follow convention over configuration. The Node Package Manager (npm) for accessing modules, and the middleware for accessing server data, both use conventions that allow developers to access, modify, and use their capabilities without having to really explicitly configure too much. For example, NPM provides developers with the standardized ‘package.json’ collective, which has further standards on collecting information on system dependencies, scripts, and project details in a predefined structure, which can then be overwritten via configuration. The middleware also has predefined properties and methods that allow for creating standardized request and response objects in the HTTP server framework.
+
+Although the developer can obviously create their own properties and methods upon the existing structure of NodeJS, the convention-oriented design of NodeJS makes it considerably easier to use and far more consistent as an overall system. The defaulted approach to using predefined structure really simplifies the development process and reduces the need for understanding and manually writing further configurations.
+
+
+
+
 ## System Improvements
