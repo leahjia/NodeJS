@@ -166,6 +166,9 @@ Node.js frameworks provide a middleware layer where developers can define and or
 
 Observer pattern is a common pattern in web-related applications.  In NodeJS,  there is a provided built-in Event-Emitter class that implements an observer pattern. Event-Emitter class allows objects to be both emitter or listeners, and enforce the communication between objects. In this case, Nodejs creates a one-to-many dependency between objects so whenever one object changes states, all other dependents can be notified and updated automatically. Since NodeJs is highly event-driven architecture, their system requires good communication between different components to make their architecture work.  Their solution is to provide a built-in event emitter class that can assign emitter or listener properties to components and make these components connect better.
 
+### Promise Pattern 
+
+Last, but not least, NodeJS uses a promise pattern to deal with asynchronous events. In NodeJS' Event Queue component, there will be tons of events fired from different clients. To avoid trouble of nested callback and easily manage asynchronous events, NodeJS implements the promise pattern in their event handling system. By doing so, NodeJs can chain asynchronous events and ensure that each event is handled in a sequential manner. Also, whenever there is an error reported, the following request would be noticed and updated.
 
 ## Architectural Assessment
 ### Single Responsibility Principle
