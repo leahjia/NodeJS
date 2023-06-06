@@ -125,22 +125,36 @@ The concern for throughput and scalability in a Node.js software system revolves
 
 ## Identifying Styles & Patterns Used
 
-####  Architecture Style:
+###  Architecture Style:
 
 One of the fundamental  architecture styles of NodeJS codebase is the “Single Threaded Event Loop” design. For handling multiple concurrent operations from different clients, NodeJS maintains a single-thread programming model to  enhance scalability, performance and avoid complexity.  As we analyzed in system components, the NodeJS system has components like Event Queue, Thread Pool and Event Loop. All of these three components follow the single threaded style and allows NodeJS to operate on a single thread to execute Javascript code. Event Queue components allow NodeJs to listen for events and store the event in the event queue. Whenever an event occurs, their corresponding callback function is placed in the event queue. In the meantime, Event Loop keeps checking the state of Event Queue, and executes those callbacks in the  sequential order. In this case, NodeJS handles events with the First In First Out rule, which is also a single thread style.
 
 Besides, the NodeJS codebase also follows a modular architecture style. NodeJS codebase separates their code in multiple directories, and constantly exports and imports modules in their code. With modular style,  NodeJS code can be reused, improving development efficiency, separating concerns and providing more flexibility. In the NodeJS codebase, we can see a lot of evidence of modular style. For example, when handling blocking requests, NodeJS will place a callback in the Thread Pool and ask for external resources to handle the events. In this case, NodeJS is importing external modules to handle events. Other than handling events, NodeJS codebase provides a built-in module system called CommonJS that allows developers to define, import and export modules while developing. NodeJS has successfully separated their code in different modules and reused them when needed.
 
 
-#### Design patterns:
+### Design patterns:
 
-- Event Emitter Pattern: The Event Emitter pattern is a key component of Node.js, enabling event-driven programming. The EventEmitter class is utilized to emit events, and event listeners are registered to respond to those events asynchronously. This pattern facilitates communication and coordination between different parts of the application.
+### Factory Pattern 
 
-- Promise Pattern:While not originally part of Node.js, Promises are widely used in modern Node.js applications and modules. Promises provide a structured and composable way to handle asynchronous operations, improving code readability and maintainability.
+NodeJS developers frequently utilize factory methods in their code. For instance, in the `node/lib/cryptos.js` file, we found a lot of create classes that return a specific object. It is similar to the factory pattern which builds a factory and has different kinds of create classes. Instead of using constructor, NodeJs developers were using factory functions for object creation. NodeJS creates many factory classes and then exports these classes as modules for later usage. NodeJs’s crypto system frequently uses factory patterns. As their comment said, factory classes are needed there to help solve the problem of recursive constructor calls. When V8 engines cannot inline the constructor calls, these factory classes can still use the new constructor and work properly. Their solution is to use factory methods instead of directly calling constructor methods to avoid the issue of using outdated constructor calls and the situation when v8 engines don't work properly.
 
-- OOP Pattern:
+### Module Pattern  
 
-- Module Pattern:
+An obvious pattern we found in NodeJS codebase is module pattern. All the files in their lib and src folders are requiring modules and exporting new classes as modules.  The whole system of NodeJS is actively using module patterns.  The purpose of module patterns is that it is very convenient for encapsulation and promotes code reusability. Their solution of promoting reusability is to export key functions, classes or files as a module, and require that module whenever needed in other files. In this case, code can be reused anywhere on the  whole big system.
+
+### Middleware Pattern
+
+ In the Node.js system, the Middleware pattern is commonly used in the context of handling HTTP requests and responses. It is primarily employed in web frameworks like Express.js to provide a flexible and modular approach for handling incoming requests and performing various tasks along the request-response cycle.  This pattern addresses the need to execute multiple functions or operations sequentially in a specific order within the request processing pipeline. This pipeline typically consists of several stages, such as request parsing, authentication, authorization, data validation, business logic execution, and response generation. Each of these stages may require separate functions or modules to handle specific tasks. 
+Node.js frameworks provide a middleware layer where developers can define and organize these functions. Each middleware function has access to the `req` (request) and `res` (response) objects, as well as a third argument called `next`, which is a function to pass control to the next middleware.
+
+### Observer Pattern 
+
+Observer pattern is a common pattern in web-related applications.  In NodeJS,  there is a provided built-in Event-Emitter class that implements an observer pattern. Event-Emitter class allows objects to be both emitter or listeners, and enforce the communication between objects. In this case, Nodejs creates a one-to-many dependency between objects so whenever one object changes states, all other dependents can be notified and updated automatically. Since NodeJs is highly event-driven architecture, their system requires good communication between different components to make their architecture work.  Their solution is to provide a built-in event emitter class that can assign emitter or listener properties to components and make these components connect better.
+
+### Promise Pattern 
+
+Last, but not least, NodeJS uses a promise pattern to deal with asynchronous events. In NodeJS' Event Queue component, there will be tons of events fired from different clients. To avoid trouble of nested callback and easily manage asynchronous events, NodeJS implements the promise pattern in their event handling system. By doing so, NodeJs can chain asynchronous events and ensure that each event is handled in a sequential manner. Also, whenever there is an error reported, the following request would be noticed and updated.
+
 
 ## Architectural Assessment
 ### Single Responsibility Principle
