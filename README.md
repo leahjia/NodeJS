@@ -81,16 +81,31 @@ Within an application that is using Node.js for backend functionality, there'll 
 
 For version control of the web server application, another common dependency amongst especially a team of developers, is *GitHub*. This can help keep track of the lifecycle of the application and the data.
 
-### Codeline’s Model’s Source Code Structure
-Doc
-Api
-api_assets
-Lib
-JS code
-Src
-C++
-Test
-Tools
+### System's Source Code Structure
+NodeJS is an open source project whose source code is hosted on GitHub. You can take a look at the project code by visiting the repository [here](https://github.com/nodejs/node). We’ve broken down the source code structure into the following sections:
+
+1. **src** – Contains the main source code files for Node.js.
+      - **deps** – Contains the third-party dependencies used by Node.js.
+      - **lib** – Contains the internal JavaScript libraries used by Node.js.
+      - **node** – Contains the C++ code that implements the Node.js runtime.
+      - **test** – Holds the test suite for Node.js.
+
+2. **doc** – This directory contains documentation files related to Node.js.
+      - **api** – Includes the API documentation for Node.js.
+      - **changelogs** – Contains the release notes and changelogs for different versions of Node.js.
+      - **deprecations** – Includes documentation for deprecated features.
+
+3. **tools** – Contains various tools used in the development and build processes of Node.js.
+      - **gyp** – A build tool used to generate platform-specific build files.
+      - **inspector** –  Includes tools for debugging and profiling Node.js applications.
+      - **nghttp2** – Contains the HTTP/2 implementation used by Node.js.
+      - **test** –  Holds test-related tools and configurations.
+
+4. **test** – Contains additional tests for Node.js.
+5. **benchmark** – Includes benchmarking tests for performance evaluation.
+6. **lib** – Contains JavaScript files that are part of the Node.js runtime.
+7. **src** – Contains C++ source files for the Node.js runtime.
+8. **deps** – Includes third-party dependencies used by Node.js.
 
 ### Approaching Testing and Configuration  
 
@@ -102,9 +117,9 @@ To formally set up testing within the web server application, the developer must
 
 
 ## Applied Perspective
-The performance perspective refers to the architectural consideration of optimizing and enhancing the system’s efficiency, responsiveness, throughput, scalability, and resource utilization. This perspective aims to ensure that the Node.js system operates at its maximum potential, delivering fast and scalable performance to handle increasing workloads.
+In this analysis, we hope to analyze the **performance and scalability perspective** of Node.js, which refers to the architectural consideration of optimizing and enhancing the system’s efficiency, responsiveness, throughput, scalability, and resource utilization. This perspective aims to ensure that the Node.js system operates at its maximum potential, delivering fast and scalable performance to handle increasing workloads.
 
-In Node.js, some of the most relevant concerns include response time, throughput, and scalability. In terms of response time, there are two classes to consider: responsiveness, which considers how quickly the system responds to routine workloads such as interactive user requests, and turnaround time, which is the time taken to complete (turn around) larger tasks. Node.js’s event-driven model is specifically designed to optimize responsiveness. By utilizing asynchronous operations, callbacks, promises, or async/await patterns, we can ensure that the system can handle multiple requests concurrently without blocking the execution. This allows the system to quickly respond to incoming requests, reducing latency and improving the overall response time.
+In Node.js, some of the most relevant concerns include ***response time***, ***throughput***, and ***scalability***. In terms of response time, there are two classes to consider: *responsiveness*, which considers how quickly the system responds to routine workloads such as interactive user requests, and turnaround time, which is the time taken to complete (turn around) larger tasks. Node.js’s event-driven model is specifically designed to optimize responsiveness. By utilizing asynchronous operations, callbacks, promises, or async/await patterns, we can ensure that the system can handle multiple requests concurrently without blocking the execution. This allows the system to quickly respond to incoming requests, reducing latency and improving the overall response time.
 
 The concern for throughput and scalability in a Node.js software system revolves around its ability to handle a high volume of requests efficiently. Node.js supports horizontal scalability, which adds more instances as the demand grows. This scalability approach ensures that the system can maintain optimal performance even under heavy loads, as the workload is distributed across multiple resources. Additionally, load balancing is significantly useful in improving the performance of the system through techniques such as round-robin, weighted distribution, and intelligent routing. Using these techniques, incoming requests can be evenly distributed among the available instances or workers, enhancing the performance of the Node system.
 
@@ -150,10 +165,6 @@ Node.js frameworks provide a middleware layer where developers can define and or
 ### Observer Pattern 
 
 Observer pattern is a common pattern in web-related applications.  In NodeJS,  there is a provided built-in Event-Emitter class that implements an observer pattern. Event-Emitter class allows objects to be both emitter or listeners, and enforce the communication between objects. In this case, Nodejs creates a one-to-many dependency between objects so whenever one object changes states, all other dependents can be notified and updated automatically. Since NodeJs is highly event-driven architecture, their system requires good communication between different components to make their architecture work.  Their solution is to provide a built-in event emitter class that can assign emitter or listener properties to components and make these components connect better.
-
-### Promise Pattern 
-
-Last, but not least, NodeJS uses a promise pattern to deal with asynchronous events. In NodeJS' Event Queue component, there will be tons of events fired from different clients. To avoid trouble of nested callback and easily manage asynchronous events, NodeJS implements the promise pattern in their event handling system. By doing so, NodeJs can chain asynchronous events and ensure that each event is handled in a sequential manner. Also, whenever there is an error reported, the following request would be noticed and updated.
 
 
 ## Architectural Assessment
