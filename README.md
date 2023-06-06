@@ -213,6 +213,112 @@ Other subsystems within NodeJs are also set up to follow convention over configu
 Although the developer can obviously create their own properties and methods upon the existing structure of NodeJS, the convention-oriented design of NodeJS makes it considerably easier to use and far more consistent as an overall system. The defaulted approach to using predefined structure really simplifies the development process and reduces the need for understanding and manually writing further configurations.
 
 
-
-
 ## System Improvements
+
+Forked repo: https://github.com/efra-tech/node
+
+### Issues: 
+
+Error handling in Node.js can be difficult, since this application follows an asynchronous programming model and also deals with callback functions. Developers can implement their own rules and use their own strategies  to handle errors. For example, when encountering a situation where a user attempts to access a null or undefined value, developers can mitigate this issue by incorporating additional conditional statements (such as if/else) to verify the existence of the value. If the value does not exist, developers can generate a descriptive error message that helps anyone using their application understand what the issue is.
+
+### Refactor 1:
+
+In `node/lib/dns.js`, we refactor a normal for loop of adding family to a for each loop to enhance readability. Since this loop is simple and doesn’t require too much manipulation, changing it to a for each loop would be easier for the collaborator to understand. Also, for future development, the developer won’t need to handle index problems if they want to add more functionality to the iteration.
+
+Original Code: 
+
+```
+for (let i = 0; i < addresses.length; i++) {
+    const addr = addresses[i];
+    addresses[i] = {
+      address: addr,
+      family: family || isIP(addr),
+    };
+  }
+```
+
+Refactored Code:
+
+```
+
+for(address in addresses) {
+    const addr = address;
+    address = {
+      address: addr,
+      family: family || isIP(addr)
+    }
+  }
+
+```
+
+### Refactor 2:
+
+In `node/test/common/wpt/crypto.js`, a small refactor could be defining a new array and then use the array as a variable, instead of putting the array directly into the `Buffer.from()` function. By doing so, the system would be more flexible to change. If the developer wants to change the value of the array, they could just directly change the array instead of finding the function using it and then change it. Also, it is very possible that the developer forgot to update the value in the function if they didn’t use a variable to store the array’ value.
+
+Original Code: 
+```
+const modp2buf = Buffer.from([
+  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xc9, 0x0f,
+  0xda, 0xa2, 0x21, 0x68, 0xc2, 0x34, 0xc4, 0xc6, 0x62, 0x8b,
+  0x80, 0xdc, 0x1c, 0xd1, 0x29, 0x02, 0x4e, 0x08, 0x8a, 0x67,
+  0xcc, 0x74, 0x02, 0x0b, 0xbe, 0xa6, 0x3b, 0x13, 0x9b, 0x22,
+  0x51, 0x4a, 0x08, 0x79, 0x8e, 0x34, 0x04, 0xdd, 0xef, 0x95,
+  0x19, 0xb3, 0xcd, 0x3a, 0x43, 0x1b, 0x30, 0x2b, 0x0a, 0x6d,
+  0xf2, 0x5f, 0x14, 0x37, 0x4f, 0xe1, 0x35, 0x6d, 0x6d, 0x51,
+  0xc2, 0x45, 0xe4, 0x85, 0xb5, 0x76, 0x62, 0x5e, 0x7e, 0xc6,
+  0xf4, 0x4c, 0x42, 0xe9, 0xa6, 0x37, 0xed, 0x6b, 0x0b, 0xff,
+  0x5c, 0xb6, 0xf4, 0x06, 0xb7, 0xed, 0xee, 0x38, 0x6b, 0xfb,
+  0x5a, 0x89, 0x9f, 0xa5, 0xae, 0x9f, 0x24, 0x11, 0x7c, 0x4b,
+  0x1f, 0xe6, 0x49, 0x28, 0x66, 0x51, 0xec, 0xe6, 0x53, 0x81,
+  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
+]);
+```
+
+Refactor Code: 
+```
+const modArray = [
+  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xc9, 0x0f,
+  0xda, 0xa2, 0x21, 0x68, 0xc2, 0x34, 0xc4, 0xc6, 0x62, 0x8b,
+  0x80, 0xdc, 0x1c, 0xd1, 0x29, 0x02, 0x4e, 0x08, 0x8a, 0x67,
+  0xcc, 0x74, 0x02, 0x0b, 0xbe, 0xa6, 0x3b, 0x13, 0x9b, 0x22,
+  0x51, 0x4a, 0x08, 0x79, 0x8e, 0x34, 0x04, 0xdd, 0xef, 0x95,
+  0x19, 0xb3, 0xcd, 0x3a, 0x43, 0x1b, 0x30, 0x2b, 0x0a, 0x6d,
+  0xf2, 0x5f, 0x14, 0x37, 0x4f, 0xe1, 0x35, 0x6d, 0x6d, 0x51,
+  0xc2, 0x45, 0xe4, 0x85, 0xb5, 0x76, 0x62, 0x5e, 0x7e, 0xc6,
+  0xf4, 0x4c, 0x42, 0xe9, 0xa6, 0x37, 0xed, 0x6b, 0x0b, 0xff,
+  0x5c, 0xb6, 0xf4, 0x06, 0xb7, 0xed, 0xee, 0x38, 0x6b, 0xfb,
+  0x5a, 0x89, 0x9f, 0xa5, 0xae, 0x9f, 0x24, 0x11, 0x7c, 0x4b,
+  0x1f, 0xe6, 0x49, 0x28, 0x66, 0x51, 0xec, 0xe6, 0x53, 0x81,
+  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
+];
+
+
+const modp2buf = Buffer.from(modArray);
+```
+
+### Refactor 3:
+
+In `node/test/common/wpt/heap.js`,  we created a new constant to store the type of “element” and “hidden”. In this case, if there are more types in the future, the developer can just add a new element type to the array and the function would work properly.  In the code, we can see when the item type is element or hidden, there will be a special case for them to make the type variable equal to “number”.  By creating a new constant, we avoid the concern that there will be future updates of the type.
+
+Original Code: 
+```
+if (item.type === 'element' || item.type === 'hidden')
+          type = 'number';
+        else
+          type = 'string';
+```
+
+Refactor Code:
+
+```
+const type1 = ['element', 'hidden'];
+ if(type1.includes(item.type))
+          type = 'number';
+        else
+          type = 'string';  
+```
+
+### Refactor 4:
+
+Lastly, a potential refactor would be creating a new directory called “patches” for the small fix on different platforms. Right now there's a directory called “android-patches” in the root directory of NodeJS. But it seems irrelevant with the NodeJS codebase, maybe they could create a new “patch” directory and then put “android-patches” folder inside it to make it more clear in the root directory.However, doing this might require a lot of effort since the NodeJS file is very dependent on modules. It is not necessary to do, but it can make the root directory much more clear and make the architecture and components clear to developers and users.
+
