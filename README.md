@@ -212,7 +212,6 @@ Other subsystems within NodeJs are also set up to follow convention over configu
 
 Although the developer can obviously create their own properties and methods upon the existing structure of NodeJS, the convention-oriented design of NodeJS makes it considerably easier to use and far more consistent as an overall system. The defaulted approach to using predefined structure really simplifies the development process and reduces the need for understanding and manually writing further configurations.
 
-
 ## System Improvements
 
 Forked repo: https://github.com/efra-tech/node
@@ -250,6 +249,12 @@ for(address in addresses) {
   }
 
 ```
+# System Improvement
+Forked repo: https://github.com/efra-tech/node
+
+Issues: 
+Error handling in Node.js can be difficult, since this application follows an asynchronous programming model and also deals with callback functions. Developers can implement their own rules and use their own strategies  to handle errors. For example, when encountering a situation where a user attempts to access a null or undefined value, developers can mitigate this issue by incorporating additional conditional statements (such as if/else) to verify the existence of the value. If the value does not exist, developers can generate a descriptive error message that helps anyone using their application understand what the issue is.
+
 
 ### Refactor 2:
 
